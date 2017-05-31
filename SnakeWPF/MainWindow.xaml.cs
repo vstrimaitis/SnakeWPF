@@ -41,7 +41,7 @@ namespace SnakeWPF
                 _pressedKeys.Add(e.Key);
             };
             _timer = new DispatcherTimer();
-            _timer.Interval = new TimeSpan(0, 0, 0, 0, 50);
+            _timer.Interval = new TimeSpan(0, 0, 0, 0, 16);
             _timer.Tick += (s, e) => Update();
             _timer.Start();
 
@@ -78,11 +78,28 @@ namespace SnakeWPF
 
         private void CreatePlayers()
         {
-            _snakes.Add(new Snake("Blue", 0, 0, Direction.Right, Brushes.Blue.Color, Brushes.DarkBlue.Color, Brushes.LightBlue.Color, new ControlScheme(Key.NumPad5, Key.NumPad6, Key.NumPad3, Key.NumPad9)));
-            _snakes.Add(new Snake("Pinky", 0, Columns - 1, Direction.Down, Brushes.HotPink.Color, Brushes.DeepPink.Color, Brushes.LightPink.Color, new ControlScheme(Key.W, Key.S, Key.A, Key.D)));
-            _snakes.Add(new Snake("Gren", Rows - 1, 0, Direction.Up, Brushes.Green.Color, Brushes.DarkGreen.Color, Brushes.LightGreen.Color, new ControlScheme(Key.P, Key.OemSemicolon, Key.L, Key.OemQuotes)));
-            _snakes.Add(new Snake("Cyanide", Rows - 1, Columns - 1, Direction.Left, Brushes.Cyan.Color, Brushes.DarkCyan.Color, Brushes.LightCyan.Color, new ControlScheme(Key.Up, Key.Down, Key.Left, Key.Right)));
-            _snakes.Add(new Snake("Nigga", Rows / 2, Columns / 2, Direction.Up, Brushes.Gray.Color, Brushes.Black.Color, Brushes.LightGray.Color, new ControlScheme(Key.Y, Key.H, Key.G, Key.J)));
+            _snakes.Add(new Snake("Blue",
+                                  0, 0, 5,
+                                  Direction.Right,
+                                  Brushes.Blue.Color,
+                                  Brushes.DarkBlue.Color,
+                                  Brushes.LightBlue.Color,
+                                  new ControlScheme(Key.NumPad8, Key.NumPad5, Key.NumPad4, Key.NumPad6, Key.Space)));
+            _snakes.Add(new Snake("Pinky",
+                                  0, Columns - 1, 3,
+                                  Direction.Down,
+                                  Brushes.HotPink.Color,
+                                  Brushes.DeepPink.Color,
+                                  Brushes.LightPink.Color,
+                                  new ControlScheme(Key.W, Key.S, Key.A, Key.D, Key.Space)
+                                  ));
+            //_snakes.Add(new Snake("Gren", Rows - 1, 0, 3, Direction.Up, Brushes.Green.Color, Brushes.DarkGreen.Color, Brushes.LightGreen.Color, new ControlScheme(Key.P, Key.OemSemicolon, Key.L, Key.OemQuotes, Key.Space)));
+            //_snakes.Add(new Snake("Cyanide", Rows - 1, Columns - 1, 3, Direction.Left, Brushes.Cyan.Color, Brushes.DarkCyan.Color, Brushes.LightCyan.Color, new ControlScheme(Key.Up, Key.Down, Key.Left, Key.Right, Key.Space)));
+            //_snakes.Add(new Snake("Nigga", Rows / 2, Columns / 2, 3, Direction.Up, Brushes.Gray.Color, Brushes.Black.Color, Brushes.LightGray.Color, new ControlScheme(Key.Y, Key.H, Key.G, Key.J, Key.Space)));
+
+            //_snakes.Add(new Snake("Blue", 0, 0, 2, Direction.Right, Brushes.Blue.Color, Brushes.DarkBlue.Color, Brushes.LightBlue.Color, new ControlScheme(Key.W, Key.S, Key.A, Key.D)));
+            //_snakes.Add(new Snake("Green", 1, 0, 3, Direction.Right, Brushes.Green.Color, Brushes.DarkGreen.Color, Brushes.LightGreen.Color, new ControlScheme(Key.W, Key.S, Key.A, Key.D)));
+            //_snakes.Add(new Snake("Red", 2, 0, 4, Direction.Right, Brushes.Red.Color, Brushes.DarkRed.Color, Brushes.LightCoral.Color, new ControlScheme(Key.W, Key.S, Key.A, Key.D)));
 
             var width = this.Width / _snakes.Count;
 
